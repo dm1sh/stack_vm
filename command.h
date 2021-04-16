@@ -10,6 +10,10 @@ enum command_e
   MUL,
   DIV,
   MOD,
+#ifdef IO_OPERATIONS
+  IN,
+  OUT,
+#endif
   NONE
 };
 

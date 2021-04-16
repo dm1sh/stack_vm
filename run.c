@@ -123,8 +123,45 @@ int exec(command_t cmd, stack_t *stack)
       return *res;
   }
   break;
+#ifdef IO_OPERATIONS
+  /**
+   * Inputs string with C I/O operators
+   */
+  case IN:
+  {
+    char input[512];
+    scanf("%s", &input);
+    int size = str_len(input);
+
+    for (int pos = size; size >= 0; size--)
+    {
+      stack_push(stack, input[pos], res);
+      if (res != NULL)
+        return *res;
+    }
+  }
+  break;
+  /**
+   * Outputs string with C I/O operators
+   */
+  case OUT:
+  {
+    char ch = stack_pop(stack, res);
+    if (res != NULL)
+      return *res;
+
+    while (ch != NULL)
+    {
+      putchar(ch);
+      ch = stack_pop(stack, res);
+      if (res != NULL)
+        return *res;
+    }
+  }
+  break;
+#endif
   default:
-    return -1;
+    return 1;
   }
 
   return 0;

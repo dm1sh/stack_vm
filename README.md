@@ -7,6 +7,7 @@ Stack based virtual machine and assembly code compiler
 - Assembly
   - Stack operations (push & pop)
   - Arithmetics operations
+  - I/O operations
 
 ## Assembly documentation
 
@@ -28,6 +29,10 @@ Stack based virtual machine and assembly code compiler
   Removes two top values in stack and pushes integer part of division
 - **MOD**
   Removes two top values in stack and pushes modulo
+- **IN**
+  Inputs string with C I/O operators
+- **OUT**
+  Outputs string with C I/O operators
 
 ## TODO
 

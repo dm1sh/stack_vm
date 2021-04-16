@@ -8,4 +8,8 @@ cmd_desc_t cmd_desc[] = {
     {MUL, 0, "MUL"},
     {DIV, 0, "DIV"},
     {MOD, 0, "MOD"},
+#ifdef IO_OPERATIONS
+    {IN, 0, "IN"},
+    {OUT, 0, "OUT"},
+#endif
     {NONE, 0, "NONE"}}

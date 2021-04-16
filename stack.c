@@ -30,12 +30,12 @@ int stack_push(stack_t *stack, int value, int *result)
 
   if (stack->cursor > stack->size - 1)
   {
-    *result = 1;
+    *result = 2;
     return *result;
   }
 
   stack->mem[stack->cursor + 1] = value;
-  stack->cursor += 1;
+  stack->cursor++;
 
   return 0;
 }
@@ -51,7 +51,7 @@ int stack_pop(stack_t *stack, int *result)
   }
 
   int value = stack->mem[stack->cursor];
-  stack->cursor -= 1;
+  stack->cursor--;
 
   return value;
 }
