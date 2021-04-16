@@ -4,7 +4,7 @@
 #include "./stack.h"
 #include "./command.h"
 
-int run(command_t *buff, stack_t stack);
-int exec(command_t cmd, stack_t stack);
+int run(command_t **buff, stack_t *stack);
+int exec(command_t cmd, stack_t *stack);
 
 #endif

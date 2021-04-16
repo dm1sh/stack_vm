@@ -3,9 +3,26 @@
 
 enum command_e
 {
+  PUSH,
+  POP,
   NONE
 };
 
-typedef enum command_e command_t;
+typedef enum command_e cmd_code_t;
+
+typedef struct
+{
+  cmd_code_t command;
+  int argc;
+  char name[10];
+} cmd_desc_t;
+
+cmd_desc_t cmd_desc[];
+
+typedef struct
+{
+  cmd_code_t code;
+  int args[];
+} command_t;
 
 #endif

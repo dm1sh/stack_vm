@@ -18,6 +18,9 @@ run.o:
 stack.o:
 	$(CC) -c stack.c $(CFLAG) -o $(BUILD_DIR)/$@
 
+command.o:
+	$(CC) -c command.c $(CFLAG) -o $(BUILD_DIR)/$@
+
 clear:
 	rm -rf $(BUILD_DIR)
 
