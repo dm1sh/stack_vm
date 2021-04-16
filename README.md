@@ -8,6 +8,27 @@ Stack based virtual machine and assembly code compiler
   - Stack operations (push & pop)
   - Arithmetics operations
 
+## Assembly documentation
+
+### Commands:
+
+- **NONE**
+  Doesn't do anything
+- **PUSH**
+  Pushes value to stack
+- **POP**
+  Removes from stack top
+- **ADD**
+  Removes two top values in stack and pushes their sum
+- **SUB**
+  Removes two top values in stack and pushes substraction of them
+- **MUL**
+  Removes two top values in stack and pushes multiplication of them
+- **DIV**
+  Removes two top values in stack and pushes integer part of division
+- **MOD**
+  Removes two top values in stack and pushes modulo
+
 ## TODO
 
 - VM running

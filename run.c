@@ -21,8 +21,14 @@ int exec(command_t cmd, stack_t *stack)
 
   switch (cmd.code)
   {
+  /**
+   * Doesn't do anything
+   */
   case NONE:
     break;
+  /**
+   * Pushes value to stack
+   */
   case PUSH:
   {
     stack_push(stack, cmd.args[0], res);
@@ -31,6 +37,9 @@ int exec(command_t cmd, stack_t *stack)
       return *res;
   }
   break;
+  /**
+   * Removes from stack top
+   */
   case POP:
   {
     stack_pop(stack, res);
@@ -39,6 +48,9 @@ int exec(command_t cmd, stack_t *stack)
       return *res;
   }
   break;
+  /**
+   * Removes two top values in stack and pushes their sum
+   */
   case ADD:
   {
     int b = stack_pop(stack, res);
@@ -51,6 +63,9 @@ int exec(command_t cmd, stack_t *stack)
       return *res;
   }
   break;
+  /**
+   * Removes two top values in stack and pushes substraction of them
+   */
   case SUB:
   {
     int b = stack_pop(stack, res);
@@ -63,6 +78,9 @@ int exec(command_t cmd, stack_t *stack)
       return *res;
   }
   break;
+  /**
+   * Removes two top values in stack and pushes multiplication of them
+   */
   case MUL:
   {
     int b = stack_pop(stack, res);
@@ -75,6 +93,9 @@ int exec(command_t cmd, stack_t *stack)
       return *res;
   }
   break;
+  /**
+   * Removes two top values in stack and pushes integer part of division
+   */
   case DIV:
   {
     int b = stack_pop(stack, res);
@@ -87,6 +108,9 @@ int exec(command_t cmd, stack_t *stack)
       return *res;
   }
   break;
+  /**
+   * Removes two top values in stack and pushes modulo
+   */
   case MOD:
   {
     int b = stack_pop(stack, res);
