@@ -12,4 +12,17 @@ cmd_desc_t cmd_desc[] = {
     {IN, 0, "IN"},
     {OUT, 0, "OUT"},
 #endif
-    {NONE, 0, "NONE"}}
+    {NONE, 0, "NONE"}};
+
+command_t *command_new(cmd_code_t type, int args[])
+{
+  command_t *cmd = (command_t *)malloc(sizeof(command_t));
+
+  cmd->code = type;
+  cmd->arg_v = malloc(sizeof(int) * cmd_desc[type].argc);
+
+  for (int i = 0; i < cmd_desc[type].argc; i++)
+    cmd->arg_v[i] = args[i];
+
+  return cmd;
+}

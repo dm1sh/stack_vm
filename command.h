@@ -1,6 +1,8 @@
 #ifndef COMMAND_H
 #define COMMAND_H
 
+#include <stdlib.h>
+
 enum command_e
 {
   PUSH,
@@ -26,12 +28,14 @@ typedef struct
   char name[10];
 } cmd_desc_t;
 
-cmd_desc_t cmd_desc[];
+extern cmd_desc_t cmd_desc[];
 
 typedef struct
 {
   cmd_code_t code;
-  int args[];
+  int *arg_v;
 } command_t;
+
+command_t *command_new(cmd_code_t type, int args[]);
 
 #endif

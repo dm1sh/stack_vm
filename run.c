@@ -10,6 +10,7 @@ int run(command_t **buff, stack_t *stack)
     res = exec(*(buff[pos]), stack);
     if (res)
       break;
+    pos++;
   }
 
   return res;
@@ -17,7 +18,7 @@ int run(command_t **buff, stack_t *stack)
 
 int exec(command_t cmd, stack_t *stack)
 {
-  int *res;
+  int *res = NULL;
 
   switch (cmd.code)
   {
@@ -31,7 +32,7 @@ int exec(command_t cmd, stack_t *stack)
    */
   case PUSH:
   {
-    stack_push(stack, cmd.args[0], res);
+    stack_push(stack, cmd.arg_v[0], res);
 
     if (res != NULL)
       return *res;

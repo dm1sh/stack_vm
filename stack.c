@@ -2,8 +2,6 @@
 
 stack_t *stack_new(int size, int *result)
 {
-  result = NULL;
-
   stack_t *stack = (stack_t *)malloc(sizeof(stack_t));
   if (stack == NULL)
   {
@@ -26,8 +24,6 @@ stack_t *stack_new(int size, int *result)
 
 int stack_push(stack_t *stack, int value, int *result)
 {
-  result = NULL;
-
   if (stack->cursor > stack->size - 1)
   {
     *result = 2;
@@ -42,8 +38,6 @@ int stack_push(stack_t *stack, int value, int *result)
 
 int stack_pop(stack_t *stack, int *result)
 {
-  result = NULL;
-
   if (stack->cursor == -1)
   {
     *result = 1;
@@ -58,8 +52,6 @@ int stack_pop(stack_t *stack, int *result)
 
 int stack_get(stack_t *stack, int pos, int *result)
 {
-  result = NULL;
-
   if (pos < 0 || pos >= stack->size)
   {
     *result = 1;
