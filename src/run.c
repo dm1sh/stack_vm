@@ -131,7 +131,7 @@ int exec(command_t cmd, stack_t *stack)
   case IN:
   {
     char input[512];
-    scanf("%s", &input);
+    scanf("%s", input);
     int size = str_len(input);
 
     for (int pos = size; size >= 0; size--)

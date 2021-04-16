@@ -1,28 +1,28 @@
-CFLAG=-Wall -ggdb3
-BUILD_DIR=build
-SRC_DIR=src
+TARGET_EXEC ?= stack_vm
 
-all: build_dir stack_vm
+BUILD_DIR ?= ./build
+SRC_DIRS ?= ./src
 
-build_dir:
-	mkdir -p $(BUILD_DIR)
+SRCS := $(shell find $(SRC_DIRS) -name *.c)
+OBJS := $(SRCS:%=$(BUILD_DIR)/%.o)
 
-stack_vm: main.o run.o stack.o command.o
-	$(CC) $(BUILD_DIR)/main.o $(BUILD_DIR)/run.o $(BUILD_DIR)/stack.o $(BUILD_DIR)/command.o -o $(BUILD_DIR)/$@
+INC_DIRS := $(shell find $(SRC_DIRS) -type d)
+INC_FLAGS := $(addprefix -I,$(INC_DIRS))
 
-main.o:
-	$(CC) -c $(SRC_DIR)/main.c $(CFLAG) -o $(BUILD_DIR)/$@
+CPPFLAGS ?= $(INC_FLAGS) -MMD -MP
 
-run.o:
-	$(CC) -c $(SRC_DIR)/run.c $(CFLAG) -o $(BUILD_DIR)/$@
+$(BUILD_DIR)/$(TARGET_EXEC): $(OBJS)
+	$(CC) -ggdb3 $(OBJS) -o $@ $(LDFLAGS)
 
-stack.o:
-	$(CC) -c $(SRC_DIR)/stack.c $(CFLAG) -o $(BUILD_DIR)/$@
+$(BUILD_DIR)/%.c.o: %.c
+	$(MKDIR_P) $(dir $@)
+	$(CC) -ggdb3 $(CPPFLAGS) $(CFLAGS) -c $< -o $@
 
-command.o:
-	$(CC) -c $(SRC_DIR)/command.c $(CFLAG) -o $(BUILD_DIR)/$@
+.PHONY: clean all
+
+all: $(BUILD_DIR)/$(TARGET_EXEC)
 
 clean:
-	rm -rf $(BUILD_DIR)
+	$(RM) -r $(BUILD_DIR)
 
-.PHONY: all clean
+MKDIR_P ?= mkdir -p
