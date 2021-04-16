@@ -5,6 +5,11 @@ enum command_e
 {
   PUSH,
   POP,
+  ADD,
+  SUB,
+  MUL,
+  DIV,
+  MOD,
   NONE
 };
 

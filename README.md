@@ -1,6 +1,12 @@
 # stack_vm
 
-Stack based virtual machine
+Stack based virtual machine and assembly code compiler
+
+## Features
+
+- Assembly
+  - Stack operations (push & pop)
+  - Arithmetics operations
 
 ## TODO
 

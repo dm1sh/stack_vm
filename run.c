@@ -25,6 +25,46 @@ int exec(command_t cmd, stack_t *stack)
   case POP:
     stack_pop(stack);
     break;
+  case ADD:
+  {
+    int b = stack_pop(stack);
+    int a = stack_pop(stack);
+
+    stack_push(stack, a + b);
+  }
+  break;
+  case SUB:
+  {
+    int b = stack_pop(stack);
+    int a = stack_pop(stack);
+
+    stack_push(stack, a - b);
+  }
+  break;
+  case MUL:
+  {
+    int b = stack_pop(stack);
+    int a = stack_pop(stack);
+
+    stack_push(stack, a * b);
+  }
+  break;
+  case DIV:
+  {
+    int b = stack_pop(stack);
+    int a = stack_pop(stack);
+
+    stack_push(stack, a / b);
+  }
+  break;
+  case MOD:
+  {
+    int b = stack_pop(stack);
+    int a = stack_pop(stack);
+
+    stack_push(stack, a % b);
+  }
+  break;
   case NONE:
     break;
   default:
