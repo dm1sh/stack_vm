@@ -17,56 +17,88 @@ int run(command_t **buff, stack_t *stack)
 
 int exec(command_t cmd, stack_t *stack)
 {
+  int *res;
+
   switch (cmd.code)
   {
+  case NONE:
+    break;
   case PUSH:
-    stack_push(stack, cmd.args[0]);
-    break;
+  {
+    stack_push(stack, cmd.args[0], res);
+
+    if (res != NULL)
+      return *res;
+  }
+  break;
   case POP:
-    stack_pop(stack);
-    break;
+  {
+    stack_pop(stack, res);
+
+    if (res != NULL)
+      return *res;
+  }
+  break;
   case ADD:
   {
-    int b = stack_pop(stack);
-    int a = stack_pop(stack);
+    int b = stack_pop(stack, res);
+    int a = stack_pop(stack, res);
+    if (res != NULL)
+      return *res;
 
-    stack_push(stack, a + b);
+    stack_push(stack, a + b, res);
+    if (res != NULL)
+      return *res;
   }
   break;
   case SUB:
   {
-    int b = stack_pop(stack);
-    int a = stack_pop(stack);
+    int b = stack_pop(stack, res);
+    int a = stack_pop(stack, res);
+    if (res != NULL)
+      return *res;
 
-    stack_push(stack, a - b);
+    stack_push(stack, a - b, res);
+    if (res != NULL)
+      return *res;
   }
   break;
   case MUL:
   {
-    int b = stack_pop(stack);
-    int a = stack_pop(stack);
+    int b = stack_pop(stack, res);
+    int a = stack_pop(stack, res);
+    if (res != NULL)
+      return *res;
 
-    stack_push(stack, a * b);
+    stack_push(stack, a * b, res);
+    if (res != NULL)
+      return *res;
   }
   break;
   case DIV:
   {
-    int b = stack_pop(stack);
-    int a = stack_pop(stack);
+    int b = stack_pop(stack, res);
+    int a = stack_pop(stack, res);
+    if (res != NULL)
+      return *res;
 
-    stack_push(stack, a / b);
+    stack_push(stack, a / b, res);
+    if (res != NULL)
+      return *res;
   }
   break;
   case MOD:
   {
-    int b = stack_pop(stack);
-    int a = stack_pop(stack);
+    int b = stack_pop(stack, res);
+    int a = stack_pop(stack, res);
+    if (res != NULL)
+      return *res;
 
-    stack_push(stack, a % b);
+    stack_push(stack, a % b, res);
+    if (res != NULL)
+      return *res;
   }
   break;
-  case NONE:
-    break;
   default:
     return -1;
   }
