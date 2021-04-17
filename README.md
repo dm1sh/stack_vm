@@ -65,9 +65,6 @@ It must print first three English characters
 
 ## TODO
 
-- Variables
-- Arithmetics operators
 - Strings
-- I/O operators
 - Loops
 - Arrays
