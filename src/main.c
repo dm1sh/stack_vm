@@ -61,11 +61,16 @@ int main(int argc, char *argv[])
     command_t **commands = read_bin_file(argv[2], res);
     if (commands == NULL)
     {
+      stack_free(stack);
       fprintf(stderr, "Couldn't read file\n");
       return 1;
     }
 
-    return run(commands, stack);
+    int response = run(commands, stack);
+
+    stack_free(stack);
+    command_arr_free(commands);
+    return response;
   }
   else
   {

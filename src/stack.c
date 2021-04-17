@@ -60,3 +60,9 @@ int stack_get(stack_t *stack, int pos, int *result)
 
   return stack->mem[pos];
 }
+
+void stack_free(stack_t *stack)
+{
+  free(stack->mem);
+  free(stack);
+}

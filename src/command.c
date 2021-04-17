@@ -36,3 +36,23 @@ cmd_desc_t *get_desc(char name[])
 
   return NULL;
 }
+
+void command_free(command_t *cmd)
+{
+  if (cmd->arg_v != NULL)
+    free(cmd->arg_v);
+
+  free(cmd);
+}
+
+void command_arr_free(command_t **arr)
+{
+  int pos = 0;
+  while (arr[pos] != NULL)
+  {
+    command_free(arr[pos]);
+    pos++;
+  }
+
+  free(arr);
+}

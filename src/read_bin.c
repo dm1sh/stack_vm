@@ -31,5 +31,7 @@ command_t **read_bin_file(char src[], int *res)
 
   buffer[size] = NULL;
 
+  fclose(file);
+
   return buffer;
 }

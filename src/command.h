@@ -41,5 +41,7 @@ typedef struct
 
 command_t *command_new(cmd_code_t type, int args[]);
 cmd_desc_t *get_desc(char name[]);
+void command_free(command_t *cmd);
+void command_arr_free(command_t **arr);
 
 #endif
