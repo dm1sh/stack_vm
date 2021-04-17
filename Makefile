@@ -9,7 +9,7 @@ OBJS := $(SRCS:%=$(BUILD_DIR)/%.o)
 INC_DIRS := $(shell find $(SRC_DIRS) -type d)
 INC_FLAGS := $(addprefix -I,$(INC_DIRS))
 
-CPPFLAGS ?= $(INC_FLAGS) -MMD -MP
+CPPFLAGS ?= $(INC_FLAGS) -MMD -MP -D IO_OPERATIONS
 
 $(BUILD_DIR)/$(TARGET_EXEC): $(OBJS)
 	$(CC) -ggdb3 $(OBJS) -o $@ $(LDFLAGS)
