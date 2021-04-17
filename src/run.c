@@ -145,7 +145,7 @@ int exec(command_t cmd, stack_t *stack)
   /**
    * Outputs string with C I/O operators
    */
-  case OUT:
+  case OUTS:
   {
     char ch = stack_pop(stack, res);
     if (res != NULL)
@@ -158,6 +158,18 @@ int exec(command_t cmd, stack_t *stack)
       if (res != NULL)
         return *res;
     }
+  }
+  break;
+  /**
+   * Outputs one stack element as char with I/O operators
+   */
+  case OUTC:
+  {
+    char ch = stack_get(stack, stack->cursor, res);
+    if (res != NULL)
+      return *res;
+
+    putchar(ch);
   }
   break;
 #endif

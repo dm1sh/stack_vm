@@ -10,7 +10,8 @@ cmd_desc_t cmd_desc[] = {
     {MOD, 0, "MOD"},
 #ifdef IO_OPERATIONS
     {IN, 0, "IN"},
-    {OUT, 0, "OUT"},
+    {OUTS, 0, "OUTS"},
+    {OUTC, 0, "OUTC"},
 #endif
     {NONE, 0, "NONE"}};
 

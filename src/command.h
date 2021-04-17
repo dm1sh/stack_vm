@@ -16,7 +16,8 @@ enum command_e
   MOD,
 #ifdef IO_OPERATIONS
   IN,
-  OUT,
+  OUTS,
+  OUTC,
 #endif
   NONE
 };

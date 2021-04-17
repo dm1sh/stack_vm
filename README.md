@@ -4,7 +4,8 @@ Stack based virtual machine and assembly code compiler
 
 ## Features
 
-- Binary code execution (assembly language compilation coming soon)
+- Assembly language compilation
+- Binary code execution
 - Assembly
   - Stack operations (push & pop)
   - Arithmetics operations
@@ -32,12 +33,13 @@ Stack based virtual machine and assembly code compiler
   Removes two top values in stack and pushes modulo
 - **IN**
   Inputs string with C I/O operators
-- **OUT**
+- **OUTS**
   Outputs string with C I/O operators
+- **OUTC**
+  Outputs one stack element as char with I/O operators
 
 ## TODO
 
-- Assembly compiler
 - Variables
 - Arithmetics operators
 - Strings
