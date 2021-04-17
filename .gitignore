@@ -3,3 +3,4 @@ build/
 vgcore*
 test.*
 a.out
+out.bin

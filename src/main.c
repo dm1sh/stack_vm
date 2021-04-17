@@ -2,24 +2,20 @@
 #include "./stack.h"
 #include "./compile.h"
 #include "./read_bin.h"
-
-#ifdef IO_OPERATIONS
 #include <stdio.h>
 
 void print_help()
 {
   printf("*HELP*\n");
 }
-#endif
 
 int main(int argc, char *argv[])
 {
   if (argc < 2)
   {
-#ifdef IO_OPERATIONS
     fprintf(stderr, "Illegal input: command must be specified\n");
     print_help();
-#endif
+
     return 2;
   }
   if (strcmp(argv[1], "build") == 0)
@@ -30,10 +26,9 @@ int main(int argc, char *argv[])
       compile(argv[2], argv[3]);
     else
     {
-#ifdef IO_OPERATIONS
       fprintf(stderr, "Illegal input for build:\n");
       print_help();
-#endif
+
       return 2;
     }
   }
@@ -49,19 +44,17 @@ int main(int argc, char *argv[])
       stack = stack_new(1024, res);
     else
     {
-#ifdef IO_OPERATIONS
       fprintf(stderr, "Illegal input for run:\n");
       print_help();
-#endif
+
       return 2;
     }
 
     if (res != NULL && *res == -1)
     {
-#ifdef IO_OPERATIONS
       fprintf(stderr, "Stack creation error: check memory usage.\n");
       print_help();
-#endif
+
       return 1;
     }
 
@@ -76,10 +69,9 @@ int main(int argc, char *argv[])
   }
   else
   {
-#ifdef IO_OPERATIONS
     fprintf(stderr, "Illegal input: no such command\n");
     print_help();
-#endif
+
     return 2;
   }
 }

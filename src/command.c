@@ -26,3 +26,12 @@ command_t *command_new(cmd_code_t type, int args[])
 
   return cmd;
 }
+
+cmd_desc_t *get_desc(char name[])
+{
+  for (int i = 0; i < sizeof(cmd_desc) / sizeof(cmd_desc_t); i++)
+    if (str_eq(name, cmd_desc[i].name))
+      return &cmd_desc[i];
+
+  return NULL;
+}

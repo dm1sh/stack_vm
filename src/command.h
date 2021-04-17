@@ -3,6 +3,8 @@
 
 #include <stdlib.h>
 
+#include "./utils.h"
+
 enum command_e
 {
   PUSH,
@@ -37,5 +39,6 @@ typedef struct
 } command_t;
 
 command_t *command_new(cmd_code_t type, int args[]);
+cmd_desc_t *get_desc(char name[]);
 
 #endif
