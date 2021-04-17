@@ -6,14 +6,14 @@ stack_t *stack_new(int size, int *result)
   if (stack == NULL)
   {
     *result = -1;
-    return *result;
+    return NULL;
   }
 
   stack->mem = (int *)malloc(sizeof(int) * size);
   if (stack->mem == NULL)
   {
     *result = -1;
-    return *result;
+    return NULL;
   }
 
   stack->size = size;

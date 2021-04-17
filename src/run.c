@@ -151,7 +151,7 @@ int exec(command_t cmd, stack_t *stack)
     if (res != NULL)
       return *res;
 
-    while (ch != NULL)
+    while (ch != '\0')
     {
       putchar(ch);
       ch = stack_pop(stack, res);

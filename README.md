@@ -4,6 +4,7 @@ Stack based virtual machine and assembly code compiler
 
 ## Features
 
+- Binary code execution (assembly language compilation coming soon)
 - Assembly
   - Stack operations (push & pop)
   - Arithmetics operations
@@ -36,7 +37,6 @@ Stack based virtual machine and assembly code compiler
 
 ## TODO
 
-- VM running
 - Assembly compiler
 - Variables
 - Arithmetics operators
