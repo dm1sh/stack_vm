@@ -13,6 +13,31 @@ Stack based virtual machine and assembly code compiler
 
 ## Assembly documentation
 
+### Example programm:
+
+Put it into input.s
+
+```asm
+PUSH 65
+OUTC
+PUSH 1
+ADD
+OUTC
+PUSH 1
+ADD
+OUTC
+```
+
+Run
+
+```bash
+make
+./build/stack_vm build input.s
+./build/stack_vm run out.bin
+```
+
+It must print first three English characters
+
 ### Commands:
 
 - **NONE**
